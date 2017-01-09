@@ -81,11 +81,9 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2,3,4]; //eslint-disable-line
 
 function sumArray(testArray){ //eslint-disable-line
-  var add = 0;
-  for (var index = 0 ; index < testArray.length ; index++) {
-    add = sum(add, testArray[index]);
-    add = add[0];
-  }
+  var add = testArray.reduce(function(a,b) {
+    return a + b;
+  });
   return [add, testArray.join(',') + ' was passed in as an array of numbers, and ' + add + ' is their sum.'];
 }
 
@@ -107,11 +105,9 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(testArray){ //eslint-disable-line
-  var mult = 1;
-  for (var index = 0; index < testArray.length; index++) {
-    mult = multiply(mult,testArray[index]);
-    mult = mult[0];
-  }
+  var mult = testArray.reduce(function(a,b) {
+    return a * b;
+  });
   return [mult,'The numbers ' + testArray.join(',') + ' have a product of ' + mult + '.'];
 }
 
